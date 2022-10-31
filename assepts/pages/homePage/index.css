@@ -1,0 +1,170 @@
+.cabecalho{
+    width: 100%;
+    max-width: 100%;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.cabecalho>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-top: 20px;
+}
+.cabecalho>div>div{
+    display: flex;
+    display: flex;
+    gap: 10px;
+}
+.cabecalho>div>div>div{
+    width: 11.17px;
+    height: 11.17px;
+    background: rgba(66, 0, 255, 0.5);
+    border-radius: 50%;
+}
+.cabecalho>div>div>img{
+    width: 120.35px;
+    height: 14.9px;
+    cursor: pointer;
+}
+.imgMobile{}
+.cabecalho>nav{
+    height: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.login{
+    width: 149.22px;
+    height: 48px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #4200FF;
+    border: 1px solid #4200FF;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.cadastro{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    width: 149.22px;
+    height: 48px;
+    color: #FFFFFF;
+    background: #4200FF;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.container{}
+.secImg{
+    width: 550px;
+    height: 743px;
+    display: none;
+}
+.listaEmpresa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #F8F8F8;
+    padding-top: 10px;
+}
+.listaEmpresa>select{
+    width: 90%;
+    height: 52.18px;
+    background: #4200FF;
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #FFFFFF;
+
+}
+.listaEmpresa>ul{
+    display: flex;
+    overflow-y: scroll;
+    max-width: 100%;
+}
+.listaEmpresa>ul>li{
+    min-width: 241px;
+    height: 211px;
+    margin: 20px;
+    list-style: none;
+    background: #FFFFFF;
+    border-bottom: 1px solid #4200FF;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.listaEmpresa>ul>li>h2{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+.listaEmpresa>ul>li>p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    margin-top: 80px;
+}
+.listaEmpresa>ul>li>button{
+    text-align: center;
+    width: 40%;
+    line-height: 19px;
+    margin-top: 10px;
+    color: #4200FF;
+    border: 1px solid #4200FF;
+    padding: 5px;
+    border-radius: 255px;
+}
+@media(min-width:700px){
+    .cabecalho{
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 140px;
+        padding-right: 140px;       
+    }
+    .imgMobile{
+        display: none;
+    }
+    .secImg{
+        display: flex;
+    }
+    .container{
+        margin: 0 auto;
+        margin-top: 50px;
+        max-width: 80%;
+        display: flex;
+        gap: 60px;
+        display: flex;
+        justify-content: center;
+    }   
+    .listaEmpresa{
+        max-width: 550px;
+        min-width: 550px;
+        max-height: 743px; 
+        padding-top: 0px;
+    }
+    .listaEmpresa>select{
+        width: 100%;
+    }
+    .listaEmpresa>ul{
+        flex-direction: column;
+    }
+    .listaEmpresa>ul>li{
+        width: 489px;
+        height: 135px;
+    }
+    .listaEmpresa>ul>li>p{
+        margin-top: 20px;
+    } 
+}
