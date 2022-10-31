@@ -30,10 +30,9 @@
     height: 14.9px;
     cursor: pointer;
 }
-.imgMobile{}
 .cabecalho>nav{
     height: 95px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     gap: 15px;
@@ -62,7 +61,6 @@
     cursor: pointer;
     border-radius: 5px;
 }
-.container{}
 .secImg{
     width: 550px;
     height: 743px;
@@ -77,13 +75,13 @@
 }
 .listaEmpresa>select{
     width: 90%;
-    height: 52.18px;
-    background: #4200FF;
+    min-height: 52.18px;
     text-align: center;
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
     color: #FFFFFF;
+    background: #4200FF;
 
 }
 .listaEmpresa>ul{
@@ -102,6 +100,8 @@
     flex-direction: column;
     padding-left: 10px;
     padding-top: 10px;
+    align-items: flex-start;
+    padding-bottom: 10px;
 }
 .listaEmpresa>ul>li>h2{
     font-weight: 700;
@@ -118,23 +118,25 @@
 }
 .listaEmpresa>ul>li>button{
     text-align: center;
-    width: 40%;
     line-height: 19px;
     margin-top: 10px;
     color: #4200FF;
     border: 1px solid #4200FF;
-    padding: 5px;
+    padding: 10px;
     border-radius: 255px;
 }
 @media(min-width:700px){
     .cabecalho{
         flex-direction: row;
         justify-content: space-between;
-        padding-left: 140px;
-        padding-right: 140px;       
+        padding-left: 340px;
+        padding-right: 355px;       
     }
     .imgMobile{
         display: none;
+    }
+    .cabecalho>nav{
+        display: flex;
     }
     .secImg{
         display: flex;
@@ -167,4 +169,7 @@
     .listaEmpresa>ul>li>p{
         margin-top: 20px;
     } 
+}
+#open{
+    display: flex;
 }

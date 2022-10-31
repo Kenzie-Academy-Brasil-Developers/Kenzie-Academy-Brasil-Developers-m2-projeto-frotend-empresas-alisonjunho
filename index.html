@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
+    <link rel="stylesheet" href="./assepts/css/styleToast.css">
     <link rel="stylesheet" href="./assepts/pages/homePage/index.css">
     <link rel="stylesheet" href="./assepts/css/globalStyle.css">
     <script defer type="module" src="./assepts/pages/homePage/index.js"></script>
@@ -18,7 +19,7 @@
             </div>
             <img class="imgMobile" src="./assepts/img/icones/Vector.png"alt="icone">
         </div>
-        <nav>
+        <nav class="endClose">
             <button class="login">Login</button>
             <button class="cadastro">Cadastro</button>
         </nav>
@@ -26,33 +27,10 @@
     <main class="container">
         <section class="secImg" > <img src="./assepts/img/geral/Rectangle 6.png" alt="homem em uma reunião"></section>
         <section class="listaEmpresa" >
-            <select name="nome" id="">
-                <option value="teste1">teste1</option>
-                <option value="teste2">teste2</option>
-                <option value="teste3">teste3</option>
-                <option value="teste4">teste4</option>
+            <select name="nome" id="optHome">
+                <option value="Selecionar Setor">Selecionar Setor</option>
             </select>
-            <ul>
-                <li>
-                    <h2>Empresa Name</h2>
-                    <p>X Horas</p>
-                    <button>Setor Fulano</button>
-                </li>
-                <li>
-                    <h2>Empresa Name</h2>
-                    <p>X Horas</p>
-                    <button>Setor Fulano</button>
-                </li>
-                <li>
-                    <h2>Empresa Name</h2>
-                    <p>X Horas</p>
-                    <button>Setor Fulano</button>
-                </li>
-                <li>
-                    <h2>Empresa Name</h2>
-                    <p>X Horas</p>
-                    <button>Setor Fulano</button>
-                </li>
+            <ul id="listPrinc">
             </ul>
         </section>
     </main>
