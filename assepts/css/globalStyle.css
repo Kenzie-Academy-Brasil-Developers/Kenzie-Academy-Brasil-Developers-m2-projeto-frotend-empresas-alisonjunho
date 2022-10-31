@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  :root {
+    --color-grey-1:#4200FF;;
+    --color-grey-2: rgba(66, 0, 255, 0.5);;
+   
+ 
+    --color-text-1:#000000;
+    --color-text-2: #FFFFFF;
+    --color-grey-7: #f8f9fa;
+    --color-brand-100: #087f5b;
+    --color-brand-200: #099268;
+    --font-size-1: 2.5rem;
+    --font-size-2: 1.75rem;
+    --font-size-3: 1.25rem;
+    --font-size-4: 1rem;
+  }
