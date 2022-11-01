@@ -1,0 +1,220 @@
+.cabecalho{
+    width: 100%;
+    max-width: 100%;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2); 
+    /* position: absolute;
+    top: 0;
+    z-index: 1; */
+}
+.cabecalho>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-top: 20px;
+}
+.cabecalho>div>div{
+    display: flex;
+    display: flex;
+    gap: 10px;
+}
+.cabecalho>div>div>div{
+    width: 11.17px;
+    height: 11.17px;
+    background: rgba(66, 0, 255, 0.5);
+    border-radius: 50%;
+}
+.cabecalho>div>div>img{
+    width: 120.35px;
+    height: 14.9px;
+    cursor: pointer;
+}
+.cabecalho>nav{
+    height: 95px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.Logout{
+    width: 149.22px;
+    height: 48px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #4200FF;
+    border: 1px solid #4200FF;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+main{
+    width: 1182px;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.infdados{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.infdados>h2{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+}
+.infdados>select{
+    width: 282px;
+    height: 32px;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+.infdados>div{
+    width: 150px;
+    height: 48px;
+    background: #4200FF;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    cursor: pointer;
+}
+.infdados>div>span{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+.listas{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+.listaDepartamentos{
+    width: 100%;
+    height: 385px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    gap: 40px;
+    justify-content: center;
+    background: #F8F8F8;
+    overflow-y: scroll;
+}
+.listaDepartamentos>li{
+    display: flex;
+    flex-direction: column;
+    width: 489px;
+    height: 196px;
+    gap: 50px;
+    padding: 10px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #4200FF;
+}
+.listaDepartamentos>li>div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.listaDepartamentos>li>div>h4{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+}
+.listaDepartamentos>li>div>p{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+}
+.listaDepartamentos>li>nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.listaDepartamentos>li>nav>img{
+    cursor: pointer;
+}
+.listas>h2{
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+}
+.listaUsuario{
+    width: 100%;
+    height: 385px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    gap: 40px;
+    justify-content: center;
+    background: #F8F8F8;
+    overflow-y: scroll;
+}
+.listaUsuario>li{
+    display: flex;
+    flex-direction: column;
+    width: 489px;
+    height: 196px;
+    gap: 50px;
+    padding: 10px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #4200FF;
+}
+.listaUsuario>li>div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.listaUsuario>li>div>h4{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+}
+.listaUsuario>li>div>p{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+}
+.listaUsuario>li>nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.listaUsuario>li>nav>img{
+    cursor: pointer;
+}
+
+@media(min-width:700px){
+    .cabecalho{
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 340px;
+        padding-right: 355px;       
+    }
+    .imgMobile{
+        display: none;
+    }
+    .cabecalho>nav{
+        display: flex;
+    }
+}
