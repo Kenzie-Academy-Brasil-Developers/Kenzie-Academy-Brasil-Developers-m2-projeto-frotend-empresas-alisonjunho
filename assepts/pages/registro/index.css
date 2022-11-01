@@ -6,6 +6,10 @@
     flex-direction: column;
     gap: 20px;
     border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 .cabecalho>div{
     display: flex;
@@ -72,6 +76,9 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    top: 70px;
+    z-index: 0;
 }
 main>div{
     max-width:506px;
