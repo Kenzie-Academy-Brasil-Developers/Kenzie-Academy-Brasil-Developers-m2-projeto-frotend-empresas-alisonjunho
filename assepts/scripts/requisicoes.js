@@ -1,5 +1,12 @@
 import { sucessoAndErro } from "./toast.js"
 const url = 'http://localhost:6278'
+function token(){
+  const dadosStorage = JSON.parse(localStorage.getItem('token'))
+  if(dadosStorage){
+     return dadosStorage
+  }
+}token()
+
 export async function requestLogin(user){
   try{
     const conteudo ={
@@ -17,10 +24,10 @@ export async function requestLogin(user){
     const requestJson = await request.json()
     const requestToken = requestJson.token
     const trans = JSON.stringify(requestToken)
-    localStorage.setItem('token',trans)
     if(request.ok){
+      localStorage.setItem('token',trans)
         sucessoAndErro('Login efetuado com Sucesso!','Você será direcionado para a pagina')
-        // setTimeout(()=>{window.location.replace()},5000)
+        setTimeout(()=>{window.location.replace('../UsuarioPage/index.html')},5000)
     }else{
         sucessoAndErro('Falha no Login','Verifique os dados e tente novamente!')
     }
@@ -54,4 +61,38 @@ export async function requestRegister(newUser){
   }catch(erro){
     sucessoAndErro('Virús Cavalo de Tróia!','Verifique os dados e Tente Novamente')
   }
+}
+export async function requestUserInfo(){
+   const estrutura ={
+    method: 'GET',
+    headers:{
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token()}`
+    }
+   }
+   const request = await fetch(`${url}/users/profile`,estrutura)
+   const requestJson = await request.json()
+  return requestJson
+}
+export async function requestEditUser(edit){
+try{
+  const estrutura = {
+    method:'PATCH',
+    headers:{
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token()}`
+    },
+    body: JSON.stringify(edit),
+  }
+  const request= await fetch(`${url}/users`,estrutura)
+  const requestJson = await request.json()
+  if(request.ok){
+    sucessoAndErro('Dado(s) atualizado com sucesso','Continue navegando na página!')
+  }else{
+    sucessoAndErro('Falha ao salvar Dados',`${requestJson.error}`)
+  }
+}catch(error){
+  sucessoAndErro('Falha ao salvar Dados',`${requestJson.error}`)
+
+}
 }

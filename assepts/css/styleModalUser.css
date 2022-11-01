@@ -1,0 +1,64 @@
+.modalEdit{
+width: 100%;
+height: 100vh;
+display: flex;
+position: fixed;
+justify-content: center;
+align-items: center;
+top: 0;
+background: rgba(70, 35, 167, 0.13);
+}
+.modalEdit>div{
+    width: 506px;
+    max-width: 100%;
+    height: 421px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+.modalEdit>div>div{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    width: 90%;
+}
+.modalEdit>div>div>h2{
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 60px;
+}
+.modalEdit>div>div>button{
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+.modalEdit>div>form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.modalEdit>div>form>input{
+    width: 422px;
+    max-width: 100%;
+    height: 52px;
+    padding-left: 10px;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+.modalEdit>div>form>button{
+    width: 422px;
+    max-width: 100%;
+    height: 52px;
+    color:white;
+    background: #4200FF;
+    border: none;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    cursor: pointer;
+    border-radius: 5px;
+}
