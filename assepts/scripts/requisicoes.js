@@ -27,7 +27,7 @@ export async function requestLogin(user){
     if(request.ok){
       localStorage.setItem('token',trans)
         sucessoAndErro('Login efetuado com Sucesso!','Você será direcionado para a pagina')
-        setTimeout(()=>{window.location.replace('../UsuarioPage/index.html')},5000)
+        requestAdminAndUser()
     }else{
         sucessoAndErro('Falha no Login','Verifique os dados e tente novamente!')
     }
@@ -95,4 +95,18 @@ try{
   sucessoAndErro('Falha ao salvar Dados',`${requestJson.error}`)
 
 }
+}
+export async function requestAdminAndUser(){
+  const estrutura ={
+    method:'GET',
+    headers:{
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token()}`
+    }
+  }
+  const request = await fetch(`${url}/auth/validate_user`,estrutura)
+  const requestJson = await request.json()
+  if(!requestJson.is_admin){
+    setTimeout(()=>{window.location.replace('../UsuarioPage/index.html')},5000)
+  }
 }

@@ -1,5 +1,5 @@
 import { directLogin } from "../../scripts/direcionamentoLogin.js"
-import { requestLogin } from '../../scripts/requisicoes.js'
+import { requestLogin} from '../../scripts/requisicoes.js'
 //direcionamento de paginas
 directLogin()
 // função para abrir e fechar botoes
