@@ -160,7 +160,7 @@ export async function ModalDelete(objeto){
     <div class="containerModal">
         <div class="modalDelete">
             <span class="desisto">X</span>
-            <h3>Realmente deseja deletar o Departamento <strong>Nome</strong> e demitir seus funcionários?</h3>
+            <h3>Realmente deseja deletar o Departamento <strong>${objeto.name}</strong> e demitir seus funcionários?</h3>
             <button id='${objeto.uuid}' class="delet">Confirmar</button>
         </div>
     </div>
