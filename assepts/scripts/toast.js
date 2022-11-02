@@ -3,7 +3,7 @@ export function sucessoAndErro(titulo, mensagem) {
     const div = document.createElement('div')
     div.id ='containerMensagem'
     const divimg = document.createElement('div')
-    if (titulo == 'Login efetuado com Sucesso!'||titulo == 'Resgistro realizado com sucesso!'||titulo=='Dado(s) atualizado com sucesso') {
+    if (titulo == 'Login efetuado com Sucesso!'||titulo == 'Resgistro realizado com sucesso!'||titulo=='Dado(s) atualizado com sucesso'||titulo=='Departamento criado com Sucesso') {
         div.classList.add('sucesso')
     }else {
         div.classList.add('error')

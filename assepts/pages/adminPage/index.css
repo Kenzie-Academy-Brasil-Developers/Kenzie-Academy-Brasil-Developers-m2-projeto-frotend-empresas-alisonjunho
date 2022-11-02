@@ -118,7 +118,7 @@ main{
     display: flex;
     flex-direction: column;
     width: 489px;
-    height: 196px;
+    min-height: 196px;
     gap: 50px;
     padding: 10px;
     background: #FFFFFF;
