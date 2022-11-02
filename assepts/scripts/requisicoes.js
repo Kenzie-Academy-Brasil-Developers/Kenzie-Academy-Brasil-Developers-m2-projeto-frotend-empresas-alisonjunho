@@ -110,3 +110,39 @@ export async function requestAdminAndUser(){
     setTimeout(()=>{window.location.replace('../UsuarioPage/index.html')},5000)
   }
 }
+export  async function requestAllDepartamento(){
+  const estrutura ={
+    method: 'GET',
+    headers:{
+      'Content-Type':'application/json',
+      'Authorization': `Bearer ${token()}`
+    }
+  }
+  const request = await fetch(`${url}/departments`,estrutura)
+  const requestJson = await request.json()
+return requestJson
+}
+export async function requestAdminFilterDepartamento(id){
+  const estrutura ={
+    method: 'GET',
+    headers:{
+      'Content-Type':'application/json',
+      'Authorization': `Bearer ${token()}`
+    }
+  }
+  const request = await fetch(`${url}/departments/${id}`,estrutura)
+  const requestJson = await request.json()
+return requestJson
+}
+export async function allUser(){
+  const estrutura = {
+    method: 'GET',
+    headers:{
+      'Content-Type': 'application/json',
+      'Authorization' : `Bearer ${token()}`
+    }
+  }
+  const request = await fetch(`${url}/users`,estrutura)
+  const requestJson = await request.json()
+  return requestJson
+}
