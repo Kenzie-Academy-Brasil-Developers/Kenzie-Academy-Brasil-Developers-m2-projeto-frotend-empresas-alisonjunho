@@ -186,3 +186,49 @@ export async function requestNovoDepartamento(objeto) {
     sucessoAndErro('Fala ao adicionar departamento',`${requestJson.error}`)
   }
 }
+export async function requestContratação(user){
+try{
+  const funcionario ={
+    user_uuid:user[0],
+    department_uuid:user[1]
+  }
+  const estrutura ={
+    method:'PATCH',
+    headers:{
+      'Content-Type':'application/json',
+      'Authorization': `Bearer ${token()}`
+    },
+    body: JSON.stringify(funcionario)
+  }
+  const request = await fetch(`${url}/departments/hire`,estrutura)
+  const requestJson = await request.json()
+  if(request.ok){
+    sucessoAndErro('Usuário Contratado!',`Parabens pela nova contratação!`)
+  }else{
+    sucessoAndErro('Falha na Contratação',`${requestJson.error}`)
+  }
+  
+}catch(error){
+  sucessoAndErro('Falha na Contratação',`${requestJson.error}`)
+}
+}
+export async function requestDemissão(id){
+try{
+  const estrutura={
+    method:'PATCH',
+    headers:{
+      'Content-Type':'application/json',
+      'Authorization': `Bearer ${token()}`
+    }
+  }
+  const request = await fetch(`${url}/departments/dismiss/${id}`,estrutura)
+  if(request.ok){
+    sucessoAndErro('Funcionário Demitido!', 'Funcionário não faz mais parte de nenhum departamento!')
+  }else{
+    sucessoAndErro('Falha na demissão','Funcionário não faz parte de nenhum departamento!')
+  }
+}catch(error){
+  sucessoAndErro('Falha na demissão','Funcionário não faz parte de nenhum departamento!')
+}
+
+}

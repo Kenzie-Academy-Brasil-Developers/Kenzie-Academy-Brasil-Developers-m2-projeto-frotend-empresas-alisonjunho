@@ -203,6 +203,16 @@ main{
 .listaUsuario>li>nav>img{
     cursor: pointer;
 }
+.horizonte{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.horizonte>h3{
+    font-size: 40px;
+    text-align: center;
+}
 
 @media(min-width:700px){
     .cabecalho{

@@ -25,7 +25,7 @@ export async function listaDepartamento(lista) {
         element.addEventListener('click',(event)=>{
             const id= event.target.id
            const achei= departamentos.filter((encontrado)=> encontrado.uuid==id)
-            modalVisualizador()
+            modalVisualizador(achei[0])
     })
     })
 }
