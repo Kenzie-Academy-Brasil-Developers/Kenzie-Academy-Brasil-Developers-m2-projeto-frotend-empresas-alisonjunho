@@ -1,5 +1,5 @@
 import { requestAdminFilterDepartamento, requestAllDepartamento } from "./requisicoes.js"
-import { modalVisualizador } from "./modais.js"
+import { modalVisualizador, ModalDelete } from "./modais.js"
 export async function listaDepartamento(lista) {
     const departamentos = await requestAllDepartamento()
     lista.forEach((element) => {
@@ -19,14 +19,22 @@ export async function listaDepartamento(lista) {
                 </li>
         `)
     })
-    
-    const  btnOlho = document.querySelectorAll('.olho')
-    btnOlho.forEach((element)=>{
-        element.addEventListener('click',(event)=>{
-            const id= event.target.id
-           const achei= departamentos.filter((encontrado)=> encontrado.uuid==id)
+
+    const btnOlho = document.querySelectorAll('.olho')
+    btnOlho.forEach((element) => {
+        element.addEventListener('click', (event) => {
+            const id = event.target.id
+            const achei = departamentos.filter((encontrado) => encontrado.uuid == id)
             modalVisualizador(achei[0])
+        })
     })
+    const bntDelete = document.querySelectorAll('.lixeira')
+    bntDelete.forEach((element) => {
+        element.addEventListener('click', (event) => {
+            const id = event.target.id
+            const buscaDepartamento = departamentos.filter((kdtu)=>kdtu.uuid==id)
+            ModalDelete(buscaDepartamento[0])
+        })
     })
 }
 export function selectonAdmin(lista) {
@@ -53,13 +61,18 @@ export function selectonAdmin(lista) {
     })
 }
 export async function listaUser(lista) {
+    const todosDepartamento = await requestAllDepartamento()
     lista.forEach((element) => {
-        let departamento = lista.department_uuid
-        if (departamento == null) {
-            departamento = ''
-        }
-        const ul = document.querySelector('.listaUsuario')
-        ul.insertAdjacentHTML('beforeend', `
+        if (element.username != 'ADMIN') {
+            let departamento = element.department_uuid
+            if (element.department_uuid == null) {
+                departamento = 'Desempregado'
+            } else {
+                const nomeDepartamento = todosDepartamento.filter((busca) => busca.uuid == departamento)
+                departamento = nomeDepartamento[0].name
+            }
+            const ul = document.querySelector('.listaUsuario')
+            ul.insertAdjacentHTML('beforeend', `
     <li>
                     <div>
                         <h4>${element.username}</h4>
@@ -73,5 +86,6 @@ export async function listaUser(lista) {
                 </li>
 
     `)
+        }
     })
 }

@@ -1,4 +1,4 @@
-import { requestNovoDepartamento, allUser, requestAllDepartamento,requestContratação, requestDemissão } from "./requisicoes.js"
+import { requestNovoDepartamento, allUser, requestAllDepartamento,requestContratação, requestDemissão,requestDelete } from "./requisicoes.js"
 export function modalCriaDepartamento(lista) {
     const body = document.querySelector('body')
     body.insertAdjacentHTML('beforeend', `
@@ -51,6 +51,7 @@ function optionModalDinamico(dados) {
     })
 
 }
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 export async function modalVisualizador(item) {
     const body = document.querySelector('body')
     body.insertAdjacentHTML('beforeend', `
@@ -101,10 +102,12 @@ async function usuarioDempregados() {
     const lista = await allUser()
     const users = lista.filter((element) => element.department_uuid == null)
     users.forEach((item) => {
+      if(item.username!='ADMIN'){
         const selec = document.querySelector('.selecopt')
         selec.insertAdjacentHTML('beforeend', `
     <option value="${item.uuid}">${item.username}</option>
     `)
+      }
     })
 }
 async function usuarioEmpregados(lista) {
@@ -150,3 +153,29 @@ async function usuarioEmpregados(lista) {
 
    }
 }
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+export async function ModalDelete(objeto){
+    const body = document.querySelector('body')
+    body.insertAdjacentHTML('beforeend',`
+    <div class="containerModal">
+        <div class="modalDelete">
+            <span class="desisto">X</span>
+            <h3>Realmente deseja deletar o Departamento <strong>Nome</strong> e demitir seus funcionários?</h3>
+            <button id='${objeto.uuid}' class="delet">Confirmar</button>
+        </div>
+    </div>
+    `)
+    const btnclose = document.querySelector('.desisto')
+    btnclose.addEventListener('click',(event)=>{
+        event.path[2].remove()
+    })
+    const btn =document.querySelector('.delet')
+    btn.addEventListener('click',(eve)=>{
+        const idDelete =eve.target.id
+        requestDelete(idDelete)
+        eve.path[2].remove()
+        setTimeout(()=>{window.location.reload()},5000)
+    })
+
+}
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

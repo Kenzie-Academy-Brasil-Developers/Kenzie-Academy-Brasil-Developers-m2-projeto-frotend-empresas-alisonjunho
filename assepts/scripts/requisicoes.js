@@ -148,19 +148,19 @@ export async function allUser() {
   const requestJson = await request.json()
   return requestJson
 }
-export async function requestAllEmpresas(){
-  const estrutura= {
-    method:'GET',
-    headers:{
+export async function requestAllEmpresas() {
+  const estrutura = {
+    method: 'GET',
+    headers: {
       'Content-Type': 'application/json',
     }
   }
-  const request = await fetch(`${url}/companies`,estrutura)
-  const requestJson= await request.json()
+  const request = await fetch(`${url}/companies`, estrutura)
+  const requestJson = await request.json()
   return requestJson
 }
 export async function requestNovoDepartamento(objeto) {
-  try{
+  try {
     const nvoObjeto = {
       name: objeto.name,
       description: objeto.description,
@@ -174,61 +174,80 @@ export async function requestNovoDepartamento(objeto) {
       },
       body: JSON.stringify(nvoObjeto)
     }
-    const request = await fetch(`${url}/departments`,estrutura)
+    const request = await fetch(`${url}/departments`, estrutura)
     const requestJson = await request.json()
-    if(request.ok){
-       sucessoAndErro('Departamento criado com Sucesso','A pagina Será atualizada')
-       setTimeout(()=>{window.location.reload()},5000)
-    }else{
-      sucessoAndErro('Fala ao adicionar departamento',`${requestJson.error}`)
+    if (request.ok) {
+      sucessoAndErro('Departamento criado com Sucesso', 'A pagina Será atualizada')
+      setTimeout(() => { window.location.reload() }, 5000)
+    } else {
+      sucessoAndErro('Fala ao adicionar departamento', `${requestJson.error}`)
     }
-  }catch(error){
-    sucessoAndErro('Fala ao adicionar departamento',`${requestJson.error}`)
+  } catch (error) {
+    sucessoAndErro('Fala ao adicionar departamento', `${requestJson.error}`)
   }
 }
-export async function requestContratação(user){
-try{
-  const funcionario ={
-    user_uuid:user[0],
-    department_uuid:user[1]
-  }
-  const estrutura ={
-    method:'PATCH',
-    headers:{
-      'Content-Type':'application/json',
-      'Authorization': `Bearer ${token()}`
-    },
-    body: JSON.stringify(funcionario)
-  }
-  const request = await fetch(`${url}/departments/hire`,estrutura)
-  const requestJson = await request.json()
-  if(request.ok){
-    sucessoAndErro('Usuário Contratado!',`Parabens pela nova contratação!`)
-  }else{
-    sucessoAndErro('Falha na Contratação',`${requestJson.error}`)
-  }
-  
-}catch(error){
-  sucessoAndErro('Falha na Contratação',`${requestJson.error}`)
-}
-}
-export async function requestDemissão(id){
-try{
-  const estrutura={
-    method:'PATCH',
-    headers:{
-      'Content-Type':'application/json',
-      'Authorization': `Bearer ${token()}`
+export async function requestContratação(user) {
+  try {
+    const funcionario = {
+      user_uuid: user[0],
+      department_uuid: user[1]
     }
-  }
-  const request = await fetch(`${url}/departments/dismiss/${id}`,estrutura)
-  if(request.ok){
-    sucessoAndErro('Funcionário Demitido!', 'Funcionário não faz mais parte de nenhum departamento!')
-  }else{
-    sucessoAndErro('Falha na demissão','Funcionário não faz parte de nenhum departamento!')
-  }
-}catch(error){
-  sucessoAndErro('Falha na demissão','Funcionário não faz parte de nenhum departamento!')
-}
+    const estrutura = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token()}`
+      },
+      body: JSON.stringify(funcionario)
+    }
+    const request = await fetch(`${url}/departments/hire`, estrutura)
+    const requestJson = await request.json()
+    if (request.ok) {
+      sucessoAndErro('Usuário Contratado!', `Parabens pela nova contratação!`)
+    } else {
+      sucessoAndErro('Falha na Contratação', `${requestJson.error}`)
+    }
 
+  } catch (error) {
+    sucessoAndErro('Falha na Contratação', `${requestJson.error}`)
+  }
+}
+export async function requestDemissão(id) {
+  try {
+    const estrutura = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token()}`
+      }
+    }
+    const request = await fetch(`${url}/departments/dismiss/${id}`, estrutura)
+    if (request.ok) {
+      sucessoAndErro('Funcionário Demitido!', 'Funcionário não faz mais parte de nenhum departamento!')
+    } else {
+      sucessoAndErro('Falha na demissão', 'Funcionário não faz parte de nenhum departamento!')
+    }
+  } catch (error) {
+    sucessoAndErro('Falha na demissão', 'Funcionário não faz parte de nenhum departamento!')
+  }
+
+}
+export async function requestDelete(id) {
+try{
+  const estrutura = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token()}`
+    }
+  }
+  const request = await fetch(`${url}/departments/${id}`,estrutura)
+  if(request.ok){
+    sucessoAndErro('Departamento Excluído com sucesso','O departamento não faz mais parte do banco de Dados')
+  }else{
+    sucessoAndErro('Falha ao excluir Departamento','O departamento não faz parte do banco de dados!')
+  }
+}catch(error){
+  sucessoAndErro('Falha ao excluir Departamento','O departamento não faz parte do banco de dados!')
+}
 }
