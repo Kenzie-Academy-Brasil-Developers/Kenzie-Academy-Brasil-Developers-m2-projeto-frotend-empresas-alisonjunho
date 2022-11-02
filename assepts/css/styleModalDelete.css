@@ -1,0 +1,42 @@
+.modalDelete{
+    width: 733px;
+    height: 342px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.modalDelete>h3{
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 42px;
+    text-align: center;
+    width: 498px;
+    margin-bottom: 30px;
+}
+.modalDelete>button{
+    width: 422px;
+    height: 48px;
+    background: #4BA036;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    border: none;
+    cursor: pointer;
+}
+.desisto{
+    width: 25px;
+    height: 25px;
+    background-color: #c0c4be;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 40px;
+    left: 330px;
+    cursor: pointer;
+}
+strong{
+    color: RED;
+}

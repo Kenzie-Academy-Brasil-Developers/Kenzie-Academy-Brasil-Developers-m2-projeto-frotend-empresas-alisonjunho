@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/styleModalDelete.css">
+    <link rel="stylesheet" href="../../css/styleModalVisao.css">
+    <link rel="stylesheet" href="../../css/styleToast.css">
+    <link rel="stylesheet" href="../../css/styleNovoDepartamento.css">
     <link rel="stylesheet" href="../../css/globalStyle.css">
     <link rel="stylesheet" href="./index.css">
     <script defer type="module" src="./index.js"></script>
@@ -25,167 +29,19 @@
     <main>
         <section class="infdados" >
             <h2>Departamentos</h2>
-            <select>
-                <option value="">Selecionar Empresa</option>
-                <option value="">Selecionar Empresa</option>
-                <option value="">Selecionar Empresa</option>
-                <option value="">Selecionar Empresa</option>
-                <option value="">Selecionar Empresa</option>
-                <option value="">Selecionar Empresa</option>
-                <option value="">Selecionar Empresa</option>
+            <select class="selectAdmin">
+                <option value="Selecionar Empresa">Selecionar Empresa</option>
             </select>
             <div class="criar">
                 <img src="../../img/icones/Vector (3).png" alt="icone">
-                <span>Criar</span>
+                <span class="criarmodal">Criar</span>
             </div>
         </section>
         <section class="listas">
-            <ul class="listaDepartamentos" >
-                <li>
-                    <div>
-                        <h4>Departament Name</h4>
-                        <p>Departamente Description</p>
-                        <p>Company</p>
-                    </div>
-                    <nav>
-                        <img class="olho" src="../../img/icones/VectorOlho.png" alt="icone olho">
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
-                    </nav>
-                </li>
-                <li>
-                    <div>
-                        <h4>Departament Name</h4>
-                        <p>Departamente Description</p>
-                        <p>Company</p>
-                    </div>
-                    <nav>
-                        <img class="olho" src="../../img/icones/VectorOlho.png" alt="icone olho">
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
-                    </nav>
-                </li>
-                <li>
-                    <div>
-                        <h4>Departament Name</h4>
-                        <p>Departamente Description</p>
-                        <p>Company</p>
-                    </div>
-                    <nav>
-                        <img class="olho" src="../../img/icones/VectorOlho.png" alt="icone olho">
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
-                    </nav>
-                </li>
-                <li>
-                    <div>
-                        <h4>Departament Name</h4>
-                        <p>Departamente Description</p>
-                        <p>Company</p>
-                    </div>
-                    <nav>
-                        <img class="olho" src="../../img/icones/VectorOlho.png" alt="icone olho">
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
-                    </nav>
-                </li>
-                <li>
-                    <div>
-                        <h4>Departament Name</h4>
-                        <p>Departamente Description</p>
-                        <p>Company</p>
-                    </div>
-                    <nav>
-                        <img class="olho" src="../../img/icones/VectorOlho.png" alt="icone olho">
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
-                    </nav>
-                </li>
-                <li>
-                    <div>
-                        <h4>Departament Name</h4>
-                        <p>Departamente Description</p>
-                        <p>Company</p>
-                    </div>
-                    <nav>
-                        <img class="olho" src="../../img/icones/VectorOlho.png" alt="icone olho">
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
-                    </nav>
-                </li>
-                <li>
-                    <div>
-                        <h4>Departament Name</h4>
-                        <p>Departamente Description</p>
-                        <p>Company</p>
-                    </div>
-                    <nav>
-                        <img class="olho" src="../../img/icones/VectorOlho.png" alt="icone olho">
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
-                    </nav>
-                </li>
-                <li>
-                    <div>
-                        <h4>Departament Name</h4>
-                        <p>Departamente Description</p>
-                        <p>Company</p>
-                    </div>
-                    <nav>
-                        <img class="olho" src="../../img/icones/VectorOlho.png" alt="icone olho">
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
-                    </nav>
-                </li>
-                
-                
+            <ul class="listaDepartamentos" >      
             </ul>
             <h2>Usuários cadastrados</h2>
             <ul class="listaUsuario">
-                <li>
-                    <div>
-                        <h4>User name</h4>
-                        <p>Nivel profissional</p>
-                        <p>Company name</p>
-                    </div>
-                    <nav>
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
-                    </nav>
-                </li>
-                <li>
-                    <div>
-                        <h4>User name</h4>
-                        <p>Nivel profissional</p>
-                        <p>Company name</p>
-                    </div>
-                    <nav>
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
-                    </nav>
-                </li>
-                <li>
-                    <div>
-                        <h4>User name</h4>
-                        <p>Nivel profissional</p>
-                        <p>Company name</p>
-                    </div>
-                    <nav>
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
-                    </nav>
-                </li>
-                <li>
-                    <div>
-                        <h4>User name</h4>
-                        <p>Nivel profissional</p>
-                        <p>Company name</p>
-                    </div>
-                    <nav>
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
-                    </nav>
-                </li>
             </ul>
         </section>
     </main>
