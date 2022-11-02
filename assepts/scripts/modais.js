@@ -1,4 +1,4 @@
-import { requestNovoDepartamento } from "./requisicoes.js"
+import { requestNovoDepartamento,allUser } from "./requisicoes.js"
 export function modalCriaDepartamento(lista) {
     const body = document.querySelector('body')
     body.insertAdjacentHTML('beforeend', `
@@ -42,7 +42,6 @@ export function modalCriaDepartamento(lista) {
     })
     }criaDepartamento()
 }
-
 function optionModalDinamico(dados){
     dados.forEach((element)=>{
         const select = document.querySelector('.options')
@@ -52,3 +51,98 @@ function optionModalDinamico(dados){
     })
 
 }
+
+export function modalVisualizador(){
+    const body = document.querySelector('body')
+    body.insertAdjacentHTML('beforeend',`
+    <div class="containerModal">
+        <div class='modalVisual'>
+            <div>
+                <h2>NOME DO DEPARTAMENTO</h2>
+                <button class="fechar" >X</button>
+            </div>
+            <section class="sectInfo">
+                <div class="infomodal">
+                    <h3>DESCRIÇÂO DEPARTAMENTO</h3>
+                    <p>EMPRESA</p>
+                </div>
+                <div class="dadosModal">
+                    <select class='selecopt' name="">
+                        <option value="Selecionar Usuário">Selecionar Usuário</option>
+                    </select>
+                    <button class="contratar">Contratar</button>
+                </div>
+            </section>
+            <section class="listaModal">
+                <ul>
+                    <li>
+                        <div>
+                            <h3>NOME DO INDIVIDUO</h3>
+                            <p>NIVEL DO INDIVIDUO</p>
+                            <p>NOME DA SUA EMPRESA</p>
+                        </div>
+                        <button class="Desligar">Desligar</button>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>NOME DO INDIVIDUO</h3>
+                            <p>NIVEL DO INDIVIDUO</p>
+                            <p>NOME DA SUA EMPRESA</p>
+                        </div>
+                        <button class="Desligar">Desligar</button>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>NOME DO INDIVIDUO</h3>
+                            <p>NIVEL DO INDIVIDUO</p>
+                            <p>NOME DA SUA EMPRESA</p>
+                        </div>
+                        <button class="Desligar">Desligar</button>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>NOME DO INDIVIDUO</h3>
+                            <p>NIVEL DO INDIVIDUO</p>
+                            <p>NOME DA SUA EMPRESA</p>
+                        </div>
+                        <button class="Desligar">Desligar</button>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>NOME DO INDIVIDUO</h3>
+                            <p>NIVEL DO INDIVIDUO</p>
+                            <p>NOME DA SUA EMPRESA</p>
+                        </div>
+                        <button class="Desligar">Desligar</button>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>NOME DO INDIVIDUO</h3>
+                            <p>NIVEL DO INDIVIDUO</p>
+                            <p>NOME DA SUA EMPRESA</p>
+                        </div>
+                        <button class="Desligar">Desligar</button>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    `)
+    usuarioDempregados()
+    const btnClose = document.querySelector('.fechar')
+    btnClose.addEventListener('click',(event)=>{
+       event.path[3].remove()
+    })
+}
+
+async function usuarioDempregados(){
+    const lista = await allUser()
+  const users= lista.filter((element)=>element.department_uuid==null)
+  users.forEach((item)=>{
+    const selec = document.querySelector('.selecopt')
+    selec.insertAdjacentHTML('beforeend',`
+    <option value="${item.uuid}">${item.username}</option>
+    `)
+  })
+}
+async function usuarioEmpregados(){}
