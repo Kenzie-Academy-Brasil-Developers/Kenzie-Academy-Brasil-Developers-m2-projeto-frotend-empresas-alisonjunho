@@ -3,41 +3,40 @@ import { informacaoUser, sectionCompani } from '../../scripts/userDom.js'
 async function estruturaInfo() {
     const info = await requestUserInfo()
     informacaoUser(info)
-}estruturaInfo()
+} estruturaInfo()
 // >>>>>>>>>>>>>>>sair da pagina
-function logout(){
+function logout() {
     const lg = document.querySelector('.Logout')
-    lg.addEventListener('click',()=>{
-         localStorage.removeItem('token')
+    lg.addEventListener('click', () => {
+        localStorage.removeItem('token')
         window.location.replace('../../../index.html')
     })
-}logout()
-// >>>>>>>>>>>>>>>>>>>>>>>. verificar quando sectionRenderizar
- async function verificarTrabalho(){
+} logout()
+// >>>>>>>>>>>>>>>>>>>>>>>. verificar qualsectionRenderizar
+async function verificarTrabalho() {
     const info = await requestUserInfo()
     const divDesempregado = document.querySelector('.desempregado')
     const divEmpregado = document.querySelector('.empregado')
-    if(!info.kind_of_work){
+    if (info.department_uuid == null) {
         divDesempregado.classList.add('trueDesempregado')
         divEmpregado.classList.remove('trueEmpregado')
-    
-    }else{
+
+    } else {
         divDesempregado.classList.remove('trueDesempregado')
         divEmpregado.classList.add('trueEmpregado')
-        // sectionCompani() precisa de uma lista
+        sectionCompani(info.uuid)
 
     }
- }verificarTrabalho()
-
- //verifica se posso ficar logadoPelo token
-  function verificaTOken(){
+} verificarTrabalho()
+//verifica se posso ficar logadoPelo token
+function verificaTOken() {
     const token = localStorage.getItem('token')
-    if(!token){
+    if (!token) {
         window.location.replace('../../../index.html')
     }
-  }verificaTOken()
+} verificaTOken()
 //abre fechaUserMobile
-  function abreFechaLogin() {
+function abreFechaLogin() {
     const nav = document.querySelector('.endClose')
     const img = document.querySelector('.imgMobile')
     img.addEventListener('click', () => {

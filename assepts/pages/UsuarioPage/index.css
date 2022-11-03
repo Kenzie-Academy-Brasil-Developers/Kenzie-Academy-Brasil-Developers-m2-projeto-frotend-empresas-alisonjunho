@@ -94,8 +94,6 @@ main{
 .imgEdit{
     cursor: pointer;
 }
-.departamentos{
-}
 .desempregado{
     display: none;
     justify-content: center;
@@ -111,6 +109,7 @@ main{
 }
 .empregado{
     display: none;
+    flex-direction: column;
     width: 1180px;
     max-width: 100%;
     background: #F8F8F8;
@@ -128,6 +127,7 @@ main{
     flex-direction: column;
     gap: 30px;
     padding: 10px;
+    padding-top: 30px;
 }
 .empregado>ul>li{
     display: flex;

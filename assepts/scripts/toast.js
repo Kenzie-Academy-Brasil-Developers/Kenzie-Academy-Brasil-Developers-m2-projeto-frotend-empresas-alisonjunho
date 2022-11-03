@@ -6,10 +6,10 @@ export function sucessoAndErro(titulo, mensagem) {
     if (titulo == 'Login efetuado com Sucesso!'||titulo == 'Resgistro realizado com sucesso!'||
     titulo=='Dado(s) atualizado com sucesso'||titulo=='Departamento criado com Sucesso'||
     titulo=='Usuário Contratado!'||titulo=='Funcionário Demitido!'||titulo=='Departamento Excluído com sucesso'||
-    titulo=='Descrição alterada com Sucesso'||titulo=='Alteração realizada com Sucesso'||'Usuário excluído com sucesso!') {
+    titulo=='Descrição alterada com Sucesso'||titulo=='Alteração realizada com Sucesso'|| titulo=='Usuário excluído com sucesso!') {
         div.classList.add('sucesso')
     }else {
-        div.classList.add('error')
+        div.classList.add('errorrr')
     }
 
     const h3 = document.createElement('h3')
