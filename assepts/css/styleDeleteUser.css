@@ -1,0 +1,43 @@
+.divmodalDeleteUser{
+    width: 733px;
+    height: 292px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   gap: 30px;
+   background-color:white;
+}
+.divmodalDeleteUser>button{
+    width: 25px;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.divmodalDeleteUser>div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.divmodalDeleteUser>div>h2{
+    width: 419px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 42px;
+    text-align: center;
+}
+.divmodalDeleteUser>div>button{
+    width: 422px;
+    height: 48px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    background: #4BA036;
+    border: none;
+    cursor: pointer;
+}
