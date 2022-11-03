@@ -1,4 +1,4 @@
-import { requestEditUser, requestTodosMesmoDepartamento } from "./requisicoes.js"
+import { requestEditUser, requestTodosMesmoDepartamento, requestAllEmpresas } from "./requisicoes.js"
 export function informacaoUser(user){
      let departamento = user.kind_of_work
      if(departamento==null){
@@ -64,10 +64,12 @@ function modalEdit(){
     })
 }
 export async function sectionCompani(id){
+    const todasEMpresas = await requestAllEmpresas()
     const todosAmigos = await requestTodosMesmoDepartamento()
+    const empresa=  todasEMpresas.filter((fil)=>fil.uuid==todosAmigos[0].company_uuid)
     const listaUL =todosAmigos[0].users
     const titulo = document.querySelector('.tituloDom')
-    titulo.innerText =`${todosAmigos[0].name}`
+    titulo.innerText =`${empresa[0].name} - ${todosAmigos[0].name}`
     listaUL.forEach((element)=>{
    if(element.uuid!=id){
     const sec = document.querySelector('.lista')
