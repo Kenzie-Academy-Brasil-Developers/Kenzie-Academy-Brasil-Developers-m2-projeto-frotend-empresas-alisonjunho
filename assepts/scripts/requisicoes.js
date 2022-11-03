@@ -204,6 +204,7 @@ export async function requestContratação(user) {
     const requestJson = await request.json()
     if (request.ok) {
       sucessoAndErro('Usuário Contratado!', `Parabens pela nova contratação!`)
+      setTimeout(()=>{window.location.reload()},5000)
     } else {
       sucessoAndErro('Falha na Contratação', `${requestJson.error}`)
     }
@@ -224,6 +225,7 @@ export async function requestDemissão(id) {
     const request = await fetch(`${url}/departments/dismiss/${id}`, estrutura)
     if (request.ok) {
       sucessoAndErro('Funcionário Demitido!', 'Funcionário não faz mais parte de nenhum departamento!')
+      setTimeout(()=>{window.location.reload()},5000)
     } else {
       sucessoAndErro('Falha na demissão', 'Funcionário não faz parte de nenhum departamento!')
     }
@@ -249,5 +251,79 @@ try{
   }
 }catch(error){
   sucessoAndErro('Falha ao excluir Departamento','O departamento não faz parte do banco de dados!')
+}
+}
+export async function requestEditDepartamento(id,description){
+ try{
+  const novaDescrição={
+    description:description,
+  }
+  const estrutura={
+    method: 'PATCH',
+    headers:{
+      "Content-Type": 'application/json',
+      'Authorization': `Bearer ${token()}`
+    },
+    body: JSON.stringify(novaDescrição)
+  }
+  const request = await fetch(`${url}/departments/${id}`,estrutura)
+  if(request.ok){
+    sucessoAndErro('Descrição alterada com Sucesso','A pagina será atualizada!')
+    setTimeout(()=>{window.location.reload()},5000)
+  }else{
+    sucessoAndErro('Falha ao salvar alterações','Verifique os dados e tente novamente')
+  }
+
+ }
+ catch(error){
+  console.log(error)
+ }
+
+}
+export async function requestEditUserAdmin(id,edit){
+try{
+  const objet ={
+    kind_of_work:edit.kind_of_work,
+    professional_level:edit.professional_level,
+  }
+  const estrutura ={
+    method: 'PATCH',
+    headers:{
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token()}`
+    },
+    body: JSON.stringify(objet)
+  }
+  const request = await fetch(`${url}/admin/update_user/${id}`,estrutura)
+  if(request.ok){
+    sucessoAndErro('Alteração realizada com Sucesso','Usuario Atualizado,Obrigado!')
+    setTimeout(()=>{window.location.reload()},5000)
+  }else{
+    sucessoAndErro('Falha ao tentar alterar dados','Verifique os campos e tente novamente')
+  }
+}
+catch(error){
+  sucessoAndErro('Falha ao tentar alterar dados','Verifique os campos e tente novamente')
+}
+}
+export async function requestDeletUser(id){
+try{
+  const estrutura={
+    method:'DELETE',
+    headers:{
+      'Content-Type':'application/json',
+      'Authorization':`Bearer ${token()}`
+    }
+  }
+  const request = await fetch(`${url}/admin/delete_user/${id}`,estrutura)
+  if(request.ok){
+    sucessoAndErro('Usuário excluído com sucesso!','O usuario não faz mais parte do banco de dados')
+    setTimeout(()=>{window.location.reload()},5000)
+  }else{
+    sucessoAndErro('Falha na solicitação','Usuário não está no bando de dados')
+  }
+}
+catch(error){
+  sucessoAndErro('Falha na solicitação','Usuário não está no bando de dados')
 }
 }

@@ -1,4 +1,4 @@
-import { requestNovoDepartamento, allUser, requestAllDepartamento,requestContratação, requestDemissão,requestDelete } from "./requisicoes.js"
+import { requestNovoDepartamento, allUser, requestAllDepartamento,requestContratação, requestDemissão,requestDelete , requestEditDepartamento ,requestEditUserAdmin , requestDeletUser} from "./requisicoes.js"
 export function modalCriaDepartamento(lista) {
     const body = document.querySelector('body')
     body.insertAdjacentHTML('beforeend', `
@@ -95,7 +95,6 @@ export async function modalVisualizador(item) {
         arrayContrato.push(idUsuario,idCompania)
         event.path[4].remove()
         requestContratação(arrayContrato)
-        setTimeout(()=>{window.location.reload()},5000)
     })
 }
 async function usuarioDempregados() {
@@ -140,7 +139,7 @@ async function usuarioEmpregados(lista) {
             const idUser =event.target.id
             event.path[5].remove()
             requestDemissão(idUser)
-            setTimeout(()=>{window.location.reload()},5000)
+            
         })
     })
    }else{
@@ -179,3 +178,107 @@ export async function ModalDelete(objeto){
 
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+export async function modalEditDepartamento(objeto){
+    const body = document.querySelector('body')
+    body.insertAdjacentHTML('beforeend',`
+    <div class="containerModal">
+    <div class="modalEditDepartamento">
+        <button class="closedModal">X</button>
+        <div>
+            <h2>Editar Departamento</h2>
+            <textarea class='valueText' name="description">${objeto.description}</textarea>
+            <button id='${objeto.uuid}' class="salvar">Salvar alterações</button>
+        </div>
+    </div>
+</div>`
+)
+const btnClose = document.querySelector('.closedModal')
+btnClose.addEventListener('click',(event)=>{
+    event.path[2].remove()
+})
+const btnSalvar = document.querySelector('.salvar')
+btnSalvar.addEventListener('click',(event)=>{
+    const valueDescription = document.querySelector('.valueText')
+    const idEdit = document.querySelector('.salvar')
+    requestEditDepartamento(idEdit.id,valueDescription.value)
+   event.path[3].remove()
+})
+}
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+export async function modalEditUser(id){
+    const body = document.querySelector('body')
+    body.insertAdjacentHTML('beforeend',`
+    <div class="containerModal">
+    <div class="modalEditUser">
+        <button class="fecharEdit">X</button>
+        <div>
+            <h2>Editar usuário</h2>
+            <select class="modalidade" name="kind_of_work" id="">
+                <option value="Selecionar modalidade de trabalho">Selecionar modalidade de trabalho</option>
+                <option value="home office">Home office</option>
+                <option value="presencial">Presencial</option>
+                <option value="hibrido">Hibrido</option>
+            </select>
+            <select class="nivel" name="professional_level" id="">
+                <option value="Selecionar nível Profissional">Selecionar nível Profissional</option>
+                <option value="estágio">Estágio</option>
+                <option value="júnior">Júnior</option>
+                <option value="pleno">Pleno</option>
+                <option value="sênior">Sênior</option>
+            </select>
+            <button id='${id}' class="edit" >Editar</button>
+        </div>
+    </div>
+</div>
+    `)
+    const btnClose = document.querySelector('.fecharEdit')
+    btnClose.addEventListener('click',(event)=>{
+        event.path[2].remove()
+    })
+    const editandoUser= document.querySelector('.edit')
+    const valueModalidade = document.querySelector('.modalidade')
+    const valueNivel = document.querySelector('.nivel')
+    const array=[]
+    editandoUser.addEventListener('click',(event)=>{
+        const idDelet = editandoUser.id
+        if(valueModalidade.value=='Selecionar modalidade de trabalho'){
+            array[valueModalidade.name]=''
+        }else{
+            array[valueModalidade.name]=valueModalidade.value
+        }
+        if(valueNivel.value=='Selecionar nível Profissional'){
+            array[valueNivel.name]=''
+        }else{
+            array[valueNivel.name]=valueNivel.value
+        }
+        requestEditUserAdmin(idDelet,array)
+        event.path[3].remove()
+    })
+}
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..
+export async function modalDeleteUser(objet){
+    const body = document.querySelector('body')
+    body.insertAdjacentHTML('beforeend',`
+    <div class="containerModal">
+    <div class="modalDeleteUser">
+        <button class="closeDelete">X</button>
+        <div>
+            <h2>Realmente desejar remover o usuário <strong>${objet.username}</strong></h2>
+            <button id='${objet.uuid}' class="delete">Deletar</button>
+        </div>
+    </div>
+</div>
+</body>
+    `)
+    const btnClose = document.querySelector('.closeDelete')
+    btnClose.addEventListener('click',(event)=>{
+        event.path[2].remove()
+    })
+    const btnDelete = document.querySelector('.delete')
+    btnDelete.addEventListener('click',(event)=>{
+        requestDeletUser(btnDelete.id)
+        event.path[3].remove()
+    })
+}

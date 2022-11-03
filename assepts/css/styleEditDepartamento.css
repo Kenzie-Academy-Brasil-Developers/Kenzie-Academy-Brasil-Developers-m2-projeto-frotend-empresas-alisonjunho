@@ -1,0 +1,50 @@
+.modalEditDepartamento{
+    width: 506px;
+    height: 330px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+.modalEditDepartamento>button{
+    width: 25px;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.modalEditDepartamento>div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 40px;
+}
+.modalEditDepartamento>div>h2{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 54px
+}
+.modalEditDepartamento>div>textarea{
+    width: 422px;
+    height: 113px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    resize: none;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.modalEditDepartamento>div>button{
+    width: 422px;
+    height: 48px;
+    background: #4200FF;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}

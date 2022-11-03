@@ -1,5 +1,5 @@
-import { requestAdminFilterDepartamento, requestAllDepartamento } from "./requisicoes.js"
-import { modalVisualizador, ModalDelete } from "./modais.js"
+import { requestAdminFilterDepartamento, requestAllDepartamento,allUser } from "./requisicoes.js"
+import { modalVisualizador, ModalDelete, modalEditDepartamento, modalEditUser , modalDeleteUser} from "./modais.js"
 export async function listaDepartamento(lista) {
     const departamentos = await requestAllDepartamento()
     lista.forEach((element) => {
@@ -36,6 +36,14 @@ export async function listaDepartamento(lista) {
             ModalDelete(buscaDepartamento[0])
         })
     })
+    const btnEdit = document.querySelectorAll('.caneta')
+    btnEdit.forEach((element)=>{
+        element.addEventListener('click',(event)=>{
+            const id = event.target.id
+            const editDepartamento = departamentos.filter((edit)=>edit.uuid==id)
+            modalEditDepartamento(editDepartamento[0])
+        })
+    })
 }
 export function selectonAdmin(lista) {
     lista.forEach((element) => {
@@ -61,6 +69,7 @@ export function selectonAdmin(lista) {
     })
 }
 export async function listaUser(lista) {
+    const todosUsuario  = await allUser()
     const todosDepartamento = await requestAllDepartamento()
     lista.forEach((element) => {
         if (element.username != 'ADMIN') {
@@ -80,12 +89,27 @@ export async function listaUser(lista) {
                         <p>${departamento}</p>
                     </div>
                     <nav>
-                        <img class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
+                        <img id='${element.uuid}' class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
+                        <img id='${element.uuid}' class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
                     </nav>
                 </li>
 
     `)
         }
     })
+   const btnEditUser=  document.querySelectorAll('.caneta')
+   btnEditUser.forEach((element)=>{
+    element.addEventListener('click',(event)=>{
+        const id = event.target.id
+        modalEditUser(id)
+    })
+   })
+   const btnDelettUser=  document.querySelectorAll('.lixeira')
+   btnDelettUser.forEach((element)=>{
+    element.addEventListener('click',(event)=>{
+        const id = event.target.id
+        const userClick = todosUsuario.filter((kdtu)=>kdtu.uuid==id)
+        modalDeleteUser(userClick[0])
+    })
+   })
 }
