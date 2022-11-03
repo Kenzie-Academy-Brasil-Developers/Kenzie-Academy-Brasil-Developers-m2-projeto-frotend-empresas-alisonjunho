@@ -257,12 +257,12 @@ export async function modalEditUser(id){
         event.path[3].remove()
     })
 }
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 export async function modalDeleteUser(objet){
     const body = document.querySelector('body')
     body.insertAdjacentHTML('beforeend',`
     <div class="containerModal">
-    <div class="modalDeleteUser">
+    <div class="divmodalDeleteUser">
         <button class="closeDelete">X</button>
         <div>
             <h2>Realmente desejar remover o usuário <strong>${objet.username}</strong></h2>

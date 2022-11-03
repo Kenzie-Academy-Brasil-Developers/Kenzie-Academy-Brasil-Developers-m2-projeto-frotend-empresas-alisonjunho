@@ -89,22 +89,22 @@ export async function listaUser(lista) {
                         <p>${departamento}</p>
                     </div>
                     <nav>
-                        <img id='${element.uuid}' class ='caneta'src="../../img/icones/Vector (4).png" alt="icone caneta">
-                        <img id='${element.uuid}' class="lixeira" src="../../img/icones/Vector (5).png" alt="icone lixeira">
+                        <img id='${element.uuid}' class ='canetaUser'src="../../img/icones/Vector (4).png" alt="icone caneta">
+                        <img id='${element.uuid}' class="lixeiraUser" src="../../img/icones/Vector (5).png" alt="icone lixeira">
                     </nav>
                 </li>
 
     `)
         }
     })
-   const btnEditUser=  document.querySelectorAll('.caneta')
+   const btnEditUser=  document.querySelectorAll('.canetaUser')
    btnEditUser.forEach((element)=>{
     element.addEventListener('click',(event)=>{
         const id = event.target.id
         modalEditUser(id)
     })
    })
-   const btnDelettUser=  document.querySelectorAll('.lixeira')
+   const btnDelettUser=  document.querySelectorAll('.lixeiraUser')
    btnDelettUser.forEach((element)=>{
     element.addEventListener('click',(event)=>{
         const id = event.target.id
