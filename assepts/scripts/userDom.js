@@ -4,9 +4,9 @@ export function informacaoUser(user){
      if(departamento==null){
         departamento=''
      }
-    const section = document.querySelector('.infoUser')
-    section.insertAdjacentHTML('beforeend',`<div>
-    <h2>${user.username.toUpperCase()}</h2>
+     const section = document.querySelector('.infoUser')
+     section.insertAdjacentHTML('beforeend',`<div>
+     <h2>${user.username.toUpperCase()}</h2>
     <div>
         <p>Email: ${user.email}</p>
         <p>${user.professional_level}</p>
