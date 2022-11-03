@@ -1,4 +1,4 @@
-import { requestUserInfo } from "../../scripts/requisicoes.js";
+import { requestUserInfo , requestVerificaçãoPagina } from "../../scripts/requisicoes.js";
 import { informacaoUser, sectionCompani } from '../../scripts/userDom.js'
 async function estruturaInfo() {
     const info = await requestUserInfo()
@@ -29,7 +29,11 @@ async function verificarTrabalho() {
     }
 } verificarTrabalho()
 //verifica se posso ficar logadoPelo token
-function verificaTOken() {
+async function verificaTOken() {
+    const permissão = await requestVerificaçãoPagina()
+    if(permissão.is_admin){
+        window.location.replace('../../../index.html')
+    }
     const token = localStorage.getItem('token')
     if (!token) {
         window.location.replace('../../../index.html')

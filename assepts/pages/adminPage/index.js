@@ -1,10 +1,14 @@
-import { requestAllDepartamento ,allUser,requestAllEmpresas} from "../../scripts/requisicoes.js";
+import { requestAllDepartamento ,allUser,requestAllEmpresas , requestVerificaçãoPagina} from "../../scripts/requisicoes.js";
 import { selectonAdmin, listaDepartamento, listaUser } from "../../scripts/domAdmin.js";
 import { listaHome } from "../../scripts/requestHomePage.js";
 import { modalCriaDepartamento } from "../../scripts/modais.js";
 // função para realizar logout
-function logout(){
+async function logout(){
     // verificando permissão para ficar na página
+    const permissão = await requestVerificaçãoPagina()
+    if(!permissão.is_admin){
+        window.location.replace('../../../index.html')
+    }
     const token=  localStorage.getItem('token')
     if(!token){
         window.location.replace('../../../index.html')

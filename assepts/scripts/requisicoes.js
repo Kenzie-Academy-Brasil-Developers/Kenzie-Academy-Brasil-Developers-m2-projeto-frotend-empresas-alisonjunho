@@ -123,6 +123,18 @@ export async function requestAdminAndUser() {
     setTimeout(() => { window.location.replace('../adminPage/index.html') }, 5000)
   }
 }
+export async function requestVerificaçãoPagina() {
+  const estrutura = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token()}`
+    }
+  }
+  const request = await fetch(`${url}/auth/validate_user`, estrutura)
+  const requestJson = await request.json()
+  return requestJson
+}
 export async function requestAllDepartamento() {
   const estrutura = {
     method: 'GET',
