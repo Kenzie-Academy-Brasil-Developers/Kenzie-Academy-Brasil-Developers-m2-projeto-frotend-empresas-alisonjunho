@@ -1,6 +1,6 @@
-import { requestEditUser } from "./requisicoes.js"
+import { requestEditUser, requestTodosMesmoDepartamento } from "./requisicoes.js"
 export function informacaoUser(user){
-     let departamento = user.department_uuid
+     let departamento = user.kind_of_work
      if(departamento==null){
         departamento=''
      }
@@ -63,10 +63,13 @@ function modalEdit(){
         setTimeout(()=>{window.location.reload()},5000)
     })
 }
-export function sectionCompani(info){
+export async function sectionCompani(id){
+    const todosAmigos = await requestTodosMesmoDepartamento()
+    const listaUL =todosAmigos[0].users
     const titulo = document.querySelector('.tituloDom')
-    titulo.innerText =`${info.titulo}`
-    info.forEach((element)=>{
+    titulo.innerText =`${todosAmigos[0].name}`
+    listaUL.forEach((element)=>{
+   if(element.uuid!=id){
     const sec = document.querySelector('.lista')
     sec.insertAdjacentHTML('beforeend',`
     <li>
@@ -74,7 +77,6 @@ export function sectionCompani(info){
         <p class="ex">${element.professional_level}</p>
     </li>
     `)
-
-    })
-    
+   }
+    }) 
 }

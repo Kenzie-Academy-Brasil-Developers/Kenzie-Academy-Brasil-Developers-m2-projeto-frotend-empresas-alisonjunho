@@ -51,7 +51,6 @@ export async function requestRegister(newUser) {
       body: JSON.stringify(novouser)
     }
     const request = await fetch(`${url}/auth/register`, estrutura)
-    console.log(request)
     if (request.ok) {
       sucessoAndErro('Resgistro realizado com sucesso!', 'Você será direcionado para a pagina de login')
       setTimeout(() => { window.location.replace('../login/index.html') }, 5000)
@@ -71,6 +70,18 @@ export async function requestUserInfo() {
     }
   }
   const request = await fetch(`${url}/users/profile`, estrutura)
+  const requestJson = await request.json()
+  return requestJson
+}
+export async function requestTodosMesmoDepartamento(){
+  const estrutura={
+    method:'GET',
+    headers:{
+      'Content-Type':'application/json',
+      'Authorization':`Bearer ${token()}`
+    }
+  }
+  const request = await fetch(`${url}/users/departments/coworkers`,estrutura)
   const requestJson = await request.json()
   return requestJson
 }
