@@ -7,9 +7,9 @@
     gap: 20px;
     background-color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.2); 
-    /* position: absolute;
+    position: absolute;
     top: 0;
-    z-index: 1; */
+    z-index: 1;
 }
 .cabecalho>div{
     display: flex;
@@ -58,9 +58,13 @@ main{
     max-width: 100%;
     margin: 0 auto;
     margin-top: 100px;
+    position: relative;
+    top: 10px;
 }
 .infdados{
     display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
     align-items: center;
     justify-content: space-between;
 }
@@ -103,7 +107,6 @@ main{
 }
 .listaDepartamentos{
     width: 100%;
-    height: 385px;
     display: flex;
     flex-wrap: wrap;
     padding-top: 50px;
@@ -120,7 +123,7 @@ main{
     width: 489px;
     max-height: 196px;
     min-height: 196px;
-    gap: 50px;
+    gap: 30px;
     padding: 10px;
     background: #FFFFFF;
     border-bottom: 1px solid #4200FF;
@@ -214,7 +217,9 @@ main{
     font-size: 40px;
     text-align: center;
 }
-
+#open{
+    display: flex;
+}
 @media(min-width:700px){
     .cabecalho{
         flex-direction: row;
@@ -227,5 +232,8 @@ main{
     }
     .cabecalho>nav{
         display: flex;
+    }
+    .infdados{
+        flex-direction: row;
     }
 }

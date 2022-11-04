@@ -11,7 +11,7 @@
 .modal{
     width: 506px;
     max-width: 100%;
-    height: 402px;
+    min-height: 402px;
     background-color: #FFFFFF; 
     padding: 20px; 
 }
@@ -64,6 +64,7 @@
 }
 .modal>form>button{
     width: 422px;
+    max-width: 100%;
     height: 48px;
     background: #4200FF;
     font-weight: 700;

@@ -37,3 +37,17 @@ async function novoDepartamento(){
         modalCriaDepartamento(empresas)
     })
 }novoDepartamento()
+
+function abreFechaAdmin() {
+    const nav = document.querySelector('.endClose')
+    const img = document.querySelector('.imgMobile')
+    img.addEventListener('click', () => {
+        if (nav.id=='') {
+            img.src = '../../img/icones/Vector (1).png'
+            nav.id = 'open'
+        } else {
+            img.src = '../../img/icones/Vector.png'
+            nav.id = ''
+        }
+    })
+} abreFechaAdmin()
