@@ -45,6 +45,7 @@ function abreFechaLogin() {
     const img = document.querySelector('.imgMobile')
     img.addEventListener('click', () => {
         const imgSrc = img.src
+
         if (imgSrc == 'http://127.0.0.1:5500/assepts/img/icones/Vector.png') {
             img.src = '../../img/icones/Vector (1).png'
             nav.id = 'open'

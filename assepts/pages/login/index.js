@@ -6,15 +6,15 @@ directLogin()
 function abreFechaLogin() {
     const nav = document.querySelector('.endClose')
     const img = document.querySelector('.imgMobile')
-    img.addEventListener('click', () => {
-        const imgSrc = img.src
-        if (imgSrc == 'http://127.0.0.1:5500/assepts/img/icones/Vector.png') {
+    img.addEventListener('click', (event) => {
+        if (nav.id=='') {   
             img.src = '../../img/icones/Vector (1).png'
             nav.id = 'open'
-        } else {
-            img.src = '../../img/icones/Vector.png'
-            nav.id = ''
+        } else{  
+              img.src = '../../img/icones/Vector.png'
+              nav.id = ''
         }
+        
     })
 } abreFechaLogin()
 
